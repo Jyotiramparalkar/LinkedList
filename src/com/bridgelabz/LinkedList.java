@@ -1,36 +1,53 @@
 package com.bridgelabz;
 
-public class LinkedList
-{
-	// Program to Singly Linked list
-	Node head = null;
-	public void createLinkedList()
-	{
-		Node firstNode = new Node(56);
-		Node secondNode = new Node(30);
-		Node thirdNode = new Node(70);
-		head = firstNode;
-		firstNode.next = secondNode;
-		secondNode.next = thirdNode;
-		thirdNode.next = null;
-	}
+public class LinkedList {
 
-	public void displayLinkedList()
-	{
-		if(head == null)
-			System.out.println("Empty Linked List ::");
-		else{
-			Node current = head;
-			while (current != null)
-			{
-				System.out.print(current.data+" --- ");
-				current = current.next;
-			}
+    //Represent the head of the single linked list
+    Node head = null;
 
-		}
-	}
+
+    public void createLinkedList()
+    {
+        Node firstNode = new Node(56);
+        Node secondNode = new Node(30);
+        Node thirdNode = new Node(70);
+        head = firstNode;
+        firstNode.next = secondNode;
+        secondNode.next = thirdNode;
+        thirdNode.next = null;
+    }
+
+    public void displayLinkedList()
+    {
+        if(head == null)
+            System.out.println("Empty Linked list");
+        else{
+            Node current = head;
+            while (current != null)
+            {
+                System.out.print(current.data+" --- ");
+                current = current.next;
+            }
+
+        }
+    }
+
+    public void addNodeAtStart(int data)
+    {
+        Node newNode = new Node(data);
+
+        if (head == null)
+        {
+            head = newNode;
+            newNode.next = null;
+        }else
+        {
+            Node temp = head;
+            head = newNode;
+            newNode.next = temp;
+        }
+
+    }
 
 
 }
-
-
