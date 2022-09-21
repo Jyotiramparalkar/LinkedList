@@ -10,10 +10,9 @@ public class LinkedListMain {
 
         int ch;
         do{
-            System.out.println("\n0.Exit \n1.Add node at start \n");
+            System.out.println("\n0.Exit \n1.Add node at start \n2.Add node at end \n");
             ch = sc.nextInt();
-            switch (ch)
-            {
+            switch (ch){
                 case 0:
                     System.exit(0);
                     break;
@@ -24,6 +23,16 @@ public class LinkedListMain {
                     linkedList.addNodeAtStart(56);
                     linkedList.displayLinkedList();
                     break;
+                case 2:
+                    LinkedList linkedList1 = new LinkedList();
+                    linkedList1.addNodeAtEnd(56);
+                    linkedList1.addNodeAtEnd(30);
+                    linkedList1.addNodeAtEnd(70);
+                    linkedList1.displayLinkedList();
+                    break;
+                default:
+                    System.out.println("Invalid ::");
+
             }
 
         }while (ch != 0);

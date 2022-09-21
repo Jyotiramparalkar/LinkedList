@@ -2,8 +2,9 @@ package com.bridgelabz;
 
 public class LinkedList {
 
-    //Represent the head of the single linked list
+    //Represent the head and tail of the single linked list
     Node head = null;
+    Node tail = null;
 
 
     public void createLinkedList()
@@ -20,11 +21,10 @@ public class LinkedList {
     public void displayLinkedList()
     {
         if(head == null)
-            System.out.println("Empty Linked list");
+            System.out.println("Empty linked list");
         else{
             Node current = head;
-            while (current != null)
-            {
+            while (current != null){
                 System.out.print(current.data+" --- ");
                 current = current.next;
             }
@@ -36,17 +36,27 @@ public class LinkedList {
     {
         Node newNode = new Node(data);
 
-        if (head == null)
-        {
+        if (head == null){
             head = newNode;
             newNode.next = null;
-        }else
-        {
+        }else{
             Node temp = head;
             head = newNode;
             newNode.next = temp;
         }
+    }
 
+    public void addNodeAtEnd(int data){
+        Node newNode = new Node(data);
+        if ( head == null){
+            head = newNode;
+            tail = newNode;
+            newNode.next = null;
+        }else{
+            tail.next = newNode;
+            newNode.next =null;
+            tail = tail.next;
+        }
     }
 
 
