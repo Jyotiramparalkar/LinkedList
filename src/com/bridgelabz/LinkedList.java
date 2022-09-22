@@ -20,7 +20,7 @@ public class LinkedList {
 
     public void displayLinkedList(){
         if(head == null)
-            System.out.println("Empty linked list");
+            System.out.println("Empty Linked list");
         else{
             Node current = head;
             while (current != null){
@@ -82,7 +82,7 @@ public class LinkedList {
 
     public void deleteFirstElement(){
         if (head == null)
-            System.out.println("Linked list is empty!");
+            System.out.println("Empty linked list");
         else {
             head = head.next;
         }
@@ -93,7 +93,7 @@ public class LinkedList {
     * */
     public void deleteLastElement(){
         if (head == null)
-            System.out.println("Empty Linked list");
+            System.out.println("empty linked list");
         else {
             Node current = head;
             if(head.next == null){
@@ -104,6 +104,27 @@ public class LinkedList {
                 current = current.next;
             }
             current.next = null;
+        }
+    }
+    /*
+     * This method is used to find the node with the give value
+     * It will return position of node if found
+     * else it will return -1
+     * */
+    public int findNode(int data){
+        int position = 0;
+        if (head == null)
+            return -1;
+        else{
+            Node current = head;
+            while (current != null){
+                if (current.data == data){
+                    return position;
+                }
+                position++;
+                current = current.next;
+            }
+            return -1;
         }
     }
 
