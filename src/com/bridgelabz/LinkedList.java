@@ -80,5 +80,13 @@ public class LinkedList {
         }
     }
 
+    public void deleteFirstElement(){
+        if (head == null)
+            System.out.println("Empty linked list");
+        else {
+            head = head.next;
+        }
+    }
+
 
 }
