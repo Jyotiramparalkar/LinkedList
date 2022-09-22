@@ -20,7 +20,7 @@ public class LinkedList {
 
     public void displayLinkedList(){
         if(head == null)
-            System.out.println("Empty Linked list");
+            System.out.println("Empty linked list");
         else{
             Node current = head;
             while (current != null){
@@ -82,9 +82,28 @@ public class LinkedList {
 
     public void deleteFirstElement(){
         if (head == null)
-            System.out.println("Empty linked list");
+            System.out.println("Linked list is empty!");
         else {
             head = head.next;
+        }
+    }
+
+    /*
+    * method is used to delete the last element from the linked list
+    * */
+    public void deleteLastElement(){
+        if (head == null)
+            System.out.println("Empty Linked list");
+        else {
+            Node current = head;
+            if(head.next == null){
+                head = null;
+                return;
+            }
+            while (current.next.next != null){
+                current = current.next;
+            }
+            current.next = null;
         }
     }
 
