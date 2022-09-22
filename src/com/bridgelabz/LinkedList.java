@@ -3,12 +3,12 @@ package com.bridgelabz;
 public class LinkedList {
 
     //Represent the head and tail of the single linked list
+	
     Node head = null;
     Node tail = null;
 
 
-    public void createLinkedList()
-    {
+    public void createLinkedList(){
         Node firstNode = new Node(56);
         Node secondNode = new Node(30);
         Node thirdNode = new Node(70);
@@ -18,10 +18,9 @@ public class LinkedList {
         thirdNode.next = null;
     }
 
-    public void displayLinkedList()
-    {
+    public void displayLinkedList(){
         if(head == null)
-            System.out.println("Empty linked list");
+            System.out.println("Empty Linked list");
         else{
             Node current = head;
             while (current != null){
@@ -32,8 +31,7 @@ public class LinkedList {
         }
     }
 
-    public void addNodeAtStart(int data)
-    {
+    public void addNodeAtStart(int data){
         Node newNode = new Node(data);
 
         if (head == null){
@@ -56,6 +54,29 @@ public class LinkedList {
             tail.next = newNode;
             newNode.next =null;
             tail = tail.next;
+        }
+    }
+
+    public void addInBetween(int index, int data){
+        Node newNode = new Node(data);
+        newNode.next = null;
+
+        if(index == 0)
+            addNodeAtStart(data);
+        else{
+            Node current = head;
+            Node prev = head;
+            for(int i=0;i < index; i++){
+                prev = current;
+                current = current.next;
+                if (current == null){
+                    addNodeAtEnd(data);
+                    return;
+                }
+            }
+            Node temp = prev.next;
+            prev.next = newNode;
+            newNode.next = temp;
         }
     }
 
